@@ -6,12 +6,11 @@ import NewDisney from "./NewDisney";
 import Originals from "./Originals";
 import Trending from "./Trending";
 import { useDispatch, useSelector } from "react-redux";
-// import { db } from "../firebase";
 import { getFirestore } from 'firebase/firestore'
 import { setMovies } from "../features/movie/movieSlice";
 import { selectUserName } from "../features/user/userSlice";
 import { useEffect } from "react";
-import { collection, doc, setDoc, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 
 const Home = (props) => {
   const dispatch = useDispatch();
