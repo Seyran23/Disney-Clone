@@ -16,24 +16,24 @@ const ImgSlider = (props) => {
     return <div>
         <Carousel {...settings}>
            <Wrap>
-            <a href="#">
+            <div>
                 <img  src="/images/slider-badging.jpg" />
-            </a>
+            </div>
            </Wrap>
            <Wrap>
-            <a href="#">
+            <div>
                 <img  src="/images/slider-scale.jpg" />
-            </a>
+            </div>
            </Wrap>
            <Wrap>
-            <a href="#">
+            <div>
                 <img  src="/images/slider-badag.jpg" />
-            </a>
+            </div>
            </Wrap>
            <Wrap>
-            <a href="#">
+            <div>
                 <img  src="/images/slider-scales.jpg" />
-            </a>
+            </div>
            </Wrap>
         </Carousel>
     </div>
@@ -84,7 +84,7 @@ const Wrap = styled.div`
     cursor: pointer;
     position: relative;
 
-    a {
+    div {
         border-radius: 4px;
         box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb( 0 0 0 / 73%) 0px 16px 10px -10px;
         cursor: pointer;

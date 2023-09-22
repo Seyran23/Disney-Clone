@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getDoc, getFirestore, setDoc } from "firebase/firestore";
-import {  doc } from "firebase/firestore";
+import { getDoc, getFirestore } from "firebase/firestore";
+import { doc } from "firebase/firestore";
 
 const Details = (props) => {
   const { id } = useParams();
@@ -21,15 +21,13 @@ const Details = (props) => {
         } else {
           console.log("no such document in firebase");
         }
-        console.log(detailData);
       } catch (error) {
         console.log("Error getting documnet: ", error);
-    }
+      }
     };
 
     setMovies();
   }, []);
-
 
   return (
     <Container>
@@ -56,7 +54,7 @@ const Details = (props) => {
           </AddList>
           <GroupWatch>
             <div>
-              <img alt="" src="/images/group-icon.png" alt="" />
+              <img alt="" src="/images/group-icon.png" />
             </div>
           </GroupWatch>
         </Controls>
