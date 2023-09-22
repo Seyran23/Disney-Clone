@@ -27,7 +27,7 @@ const Details = (props) => {
     };
 
     setMovies();
-  }, []);
+  });
 
   return (
     <Container>

@@ -6,7 +6,7 @@ import NewDisney from "./NewDisney";
 import Originals from "./Originals";
 import Trending from "./Trending";
 import { useDispatch, useSelector } from "react-redux";
-import { getFirestore } from 'firebase/firestore'
+import { getFirestore } from "firebase/firestore";
 import { setMovies } from "../features/movie/movieSlice";
 import { selectUserName } from "../features/user/userSlice";
 import { useEffect } from "react";
@@ -15,16 +15,14 @@ import { collection, onSnapshot } from "firebase/firestore";
 const Home = (props) => {
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
-  
-  
-  useEffect(() => {
-      const db = getFirestore();
-      const moviesCollection = collection(db, "movies");
-      let recommends = [];
-      let newDisneys = [];
-      let originals = [];
-      let trending = [];
 
+  useEffect(() => {
+    const db = getFirestore();
+    const moviesCollection = collection(db, "movies");
+    let recommends = [];
+    let newDisneys = [];
+    let originals = [];
+    let trending = [];
 
     onSnapshot(moviesCollection, (snapshot) => {
       snapshot.forEach((doc) => {
@@ -43,9 +41,11 @@ const Home = (props) => {
           case "trending":
             trending = [...trending, { id: doc.id, ...data }];
             break;
+          default:
+            break;
         }
       });
-      
+
       dispatch(
         setMovies({
           recommend: recommends,
@@ -55,8 +55,7 @@ const Home = (props) => {
         })
       );
     });
-
-  }, [userName]);
+  }, [userName, dispatch]);
 
   return (
     <Container>
